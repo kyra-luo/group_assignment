@@ -1,0 +1,200 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background: antiquewhite;
+    width: 100%;
+    margin: 0 auto;
+}
+body,input{
+    font-family: 'Poppins',sans-serif;
+}
+.container{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+
+    margin: 0 auto;
+}
+.con_forms{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+}
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+}
+.title{
+    font-size: 2.2rem;
+    color: hotpink;
+    margin-bottom: 10px;
+}
+.input_box{
+    max-height: 400px;
+    width: 40%;
+    background-color: ghostwhite;
+    margin: 10px 0;
+    border-radius: 55px;
+}
+.input_box i{
+    text-align: center;
+    line-height: 55px;
+    color: gray;
+    font-size: 1.2rem;
+}
+.input_box input{
+    border: none;
+    background: none;
+    outline: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: large;
+    color: black;
+}
+.input_box input::placeholder{
+    color: pink;
+}
+.btn{
+    width: 100px;
+    height: 50px;
+    border: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    background-color: skyblue;
+    border-radius: 46px;
+    outline: none;
+    color: ghostwhite;
+    text-transform: uppercase;
+    cursor: pointer;
+
+}
+.login_bo:hover{
+    padding: .7rem;
+}
+.social-media{
+    display: flex;
+    justify-content: center;
+
+}
+.s_icons{
+    height: 50px;
+    width: 50px;
+    border: 1px solid plum;
+    margin: 0.45rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    border-radius: 50%;
+
+}
+.s_icons:hover{
+    color: red;
+    border-color: dodgerblue;
+}
+#exit{
+    height: 50px;
+    width: 50px;
+    border: 1px solid plum;
+    margin: 0.45rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    border-radius: 50%;
+
+}
+#exit:hover{
+    color: red;
+    border-color: dodgerblue;
+}
+.login_register{
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    width: 50%;
+}
+.button{
+    float: left;
+}
+.btn1{
+    width: 200px;
+    height: 50px;
+    border: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    background-color: skyblue;
+    border-radius: 46px;
+    outline: none;
+    color: ghostwhite;
+    text-transform: uppercase;
+    cursor: pointer;
+
+}
+
+img{
+    top:22cm;
+    left: 22cm;
+    height: 180px;
+    width: 180px;
+    /*float: right;*/
+}
+.logo{
+    height: 180px;
+    width: 180px;
+    float: left;
+}
+.message{
+    display: inline-block;
+    font-size: 15px;
+    color: black;
+    padding-left: 20px;
+    float: right;
+
+}
+.message1{
+    display: inline-block;
+    font-size: 15px;
+    color: black;
+    padding-left: 20px;
+    float: right;
+}
+.fa-eye{
+    margin-right: 10px;
+    position: relative;
+    top: 1px;
+    text-align: left;
+    line-height: 65px;
+    color: gray;
+    font-size: 1.2rem;
+}
+.fa-eye:hover{
+    color: plum;
+    border-color: dodgerblue;
+}
+select{
+    width: 260px;
+    height: 30px;
+    border: 1px solid #999;
+    font-size: 18px;
+    color: #1c87c9;
+    background-color: #eee;
+    border-radius: 5px;
+    box-shadow: 4px 4px #ccc;
+}
+#BBox{
+    border: 6px solid #99C4C8;
+}

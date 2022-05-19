@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+ul li{
+    list-style: none;
+
+}
+body{
+    font-size: 14px;
+}
+.container{
+    width: 1000px;
+    margin: 0 auto;
+}
+header {
+    padding: 10px 0;
+    background-color: #e8a66c;
+}
+header .container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+header img{
+    margin-right: 50px;
+}
+header .menu a{
+    text-align: center;
+    margin-left: 50px;
+    color: #000;
+    font-size: 16px;
+}
+header .menu a:hover{
+    color: #fff;
+}
+.main{
+    display: flex;
+    justify-content: space-around;
+}
+.main .left{
+    margin-top: 30px;
+    width: 200px;
+}
+.main .left h2{
+    text-align: center;
+    padding: 10px 0;
+    border: 1px solid #000;
+    background-color: skyblue;
+    color: white;
+    font-weight: normal;
+}
+.main .left li{
+    padding: 0 10px;
+    height: 50px;
+    border: 1px solid #000;
+    line-height: 50px;
+}
+.main .left .info{
+    height: 416px;
+    overflow-y: auto;
+}
+.other{
+    display: flex;
+    justify-content: space-around;
+}
+.fot .container{
+    display: flex;
+    justify-content: space-around;
+}
+.other a{
+    display: block;
+    background-color:skyblue;
+    color: white;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.fot{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #efefef;
+}
+.fot a{
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+    width:10px;
+}
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow:inset 006px rgba(0,0,0,0.3);
+    border-radius:10px;
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    border-radius:10px;
+    background:rgba(0,0,0,0.1);
+    -webkit-box-shadow:inset 006px rgba(0,0,0,0.5);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background:rgba(14, 1, 1, 0.4);
+}
+

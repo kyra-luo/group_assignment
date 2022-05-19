@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Calendar</title>
+    <meta charset="UTF-8">
+    <link href="stylesheets/calendar.css" rel="stylesheet" type="text/css" />
+    <script src="javascripts/calendar.js" defer></script>
+</head>
+
+<body>
+<header>
+    <div class="container">
+        <img src="./images/logo.png" style="width: 160px; " alt="This our pretty logo" onclick="location.href=('main.html')">
+        <div class="menu">
+            <a href="main.html"  style=" font-size: 30px;">Home</a>
+            <a href="information.html" style=" font-size: 30px;">Information</a>
+            <a href="calendar.html" style=" font-size: 30px;">User</a>
+            <a href="login.html" style=" font-size: 30px;">Sign in</a>
+            <a href="register.html" style=" font-size: 30px;">Sign up</a>
+        </div>
+    </div>
+</header>
+<div id="calendar">
+    <div>
+
+        <button onclick="lastMonth()"></button>
+
+        <div id="month"></div>
+
+        <button onclick="nextMonth()">></button>
+    </div>
+
+
+    <div>
+        <div class="everyday">SUN</div>
+        <div class="everyday">MON</div>
+        <div class="everyday">TUE</div>
+        <div class="everyday">WEN</div>
+        <div class="everyday">THU</div>
+        <div class="everyday">FRI</div>
+        <div class="everyday">SAT</div>
+    </div>
+
+    <div id="day"></div>
+</div>
+
+<div class="fot" style="padding-bottom: 0px">
+    <div class="container">
+        <a href="About.html">About us</a>
+        <a href="About.html">Contact us</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="javascripts/login.js"></script>
+    <link rel="stylesheet" href="stylesheets/register.css">
+    <script src="https://kit.fontawesome.com/f48b9c11bb.js" crossorigin="anonymous"></script>
+    <title>Register</title>
+</head>
+<body>
+<div class="container">
+    <div class="con_forms">
+        <img class="logo" src="images/logo.png" title="The Best Company" alt="This our pretty logo" style="float: left"  onclick="location.href=('main.html')">
+        <div class="login_register">
+            <form action="information.html" class="sign_in">
+                <h2 class="title">Sign Up</h2>
+                <div class="input_box">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text"  id="ipt0" placeholder="Enter You First Name" required>
+                </div>
+                <div class="input_box">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="ipt1" placeholder="Enter You Last Name" required>
+                </div>
+                <div class="input_box">
+                    <i class="fa-solid fa-person"></i>
+                    <input type="text" class="ipt2" placeholder="Enter You User Name" required>
+                </div>
+                <div class="input_box">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password"  class="PIN1" placeholder="Enter Your Password"  oninput="myfunction()" required>
+                    <i class="fa-solid fa-eye" onclick="hid()"></i>
+                </div>
+                <p class="message"> Enter 6-16 digit password</p>
+                <div class="input_box">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password"   class="PIN2" placeholder="Conform Your Password" oninput="check()" required>
+                    <i class="fa-solid fa-eye" onclick="hidd()"></i>
+                </div>
+                <p class="message1"> Enter the password again</p>
+                <div class="input_box">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email"  class="ipt3" placeholder="Enter Your Email" required>
+                </div>
+                <div class="input_box">
+                    <i class="fa-solid fa-mars-and-venus"></i>
+                    <select>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+                <div class="button">
+                    <input type="button" value="Back to login page" class="btn1" onclick="location.href=('login.html')">
+                    <input type="submit" value="Create an account" class="btn1">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
