@@ -2,7 +2,7 @@ create database if not exists Project;
 
 use Project;
 
-create table Admin(
+create table if not exists Admin(
                       admin_id varchar(20),
                       admin_name varchar(25),
                       admin_PIN varchar(30),
@@ -11,7 +11,7 @@ create table Admin(
 
 INSERT into Admin value ('e1237h','Jason','123456789','Male');
 
-create table User(
+create table if not exists User(
                      First_name varchar(25),
                      Last_nmae varchar(25),
                      User_id varchar(20),

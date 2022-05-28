@@ -6,6 +6,9 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+//引入mysql(use mysql in this app)
+var mysql =require('mysql');
+const req = require("express/lib/request");
 
 // 引入忘记密码模块;
 
@@ -21,6 +24,19 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+//创建一个pool(create a 'pool' of connections to be used for connecting with our SQL server)
+var dbconnection=mysql.createPool({
+  host: 'localhost',
+  user: 'root',
+  password: '12345678',
+  database:'Project'
+});
+
+app.use(function (req,res,next) {
+  req.pool = dbconnection ;
+  next()
+})
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -29,7 +45,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use(function (re,res,next){
+req.pool=dbconnection;
+next();
+});
 
 
 

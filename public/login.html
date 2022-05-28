@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
    <script src="javascripts/login.js"></script>
     <link rel="stylesheet" href="stylesheets/register.css">
+<!--    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>-->
     <script src="https://kit.fontawesome.com/f48b9c11bb.js" crossorigin="anonymous"></script>
     <title>Sign in</title>
 </head>
@@ -16,22 +17,23 @@
                 <h2 class="title">SIGN IN</h2>
                 <div class="input_box">
                     <i class="fa-solid fa-user"></i>
-                    <input type="text"  placeholder="Enter You User Name" required>
+                    <input type="text"  placeholder="Enter You User Name" id="name" required>
                 </div>
                 <div class="input_box">
                     <i class="fa-solid fa-user"></i>
-                   <select>
+                   <select id="Acctype">
                        <option>User</option>
                        <option>Admin</option>
                    </select>
                 </div>
                 <div class="input_box">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Enter You password" class="PIN0" required>
+                    <input type="password" placeholder="Enter You password" class="PIN0" id="PIN" required >
                     <i class="fa-solid fa-eye" onclick="HID()"></i>
                 </div>
                 <div class="button">
-                    <input type="submit" value="Login" class="btn">
+<!--                    login-->
+                    <input type="submit" value="Login" class="btn" onclick="login()">
                         <input type="button" value="Register" class="btn" onclick="location.href=('register.html')">
                 </div>
                 <a href="reset_password.html">
@@ -58,6 +60,35 @@
     </div>
 
 </div>
+<script>
+function login(){
+    var name=document.getElementById("name").value;
+    var psw=document.getElementById("PIN").value;
+    var type=document.getElementById("Acctype");
+    var A_type = type.options[type.selectedIndex].value;
+    console.log(A_type);
+    var http=new XMLHttpRequest();
+    http.onreadystatechange=function(){
+        if(this.readyState==4&&this.status==200){
+            if(JSON.parse(this.responseText).result){
+                window.location.href="information.html";
+            }else{
+                alert("Login Failed");
+            }
+            return;
+        }
+    }
+    http.open("POST","/login",true);
+    http.setRequestHeader("Content-type", "application/json");
+    http.send(JSON.stringify({
+       name:name,
+       psw:psw,
+       A_type:A_type
+    }));
 
+}
+
+
+</script>
 </body>
 </html>
