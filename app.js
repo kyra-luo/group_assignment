@@ -11,9 +11,9 @@ var mysql =require('mysql');
 const req = require("express/lib/request");
 
 // 引入忘记密码模块;
-
+const forget = require('./routes/forget')
 // 引入登录模块
-
+const login = require('./routes/login')
 // 引入注册模块
 
 //引入查询用户信息以及操作用户信息的模块
@@ -37,12 +37,14 @@ app.use(function (req,res,next) {
   next()
 })
 
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser('abcd1234'));
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(login);
+app.use(forget);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use(function (re,res,next){

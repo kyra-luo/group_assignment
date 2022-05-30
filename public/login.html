@@ -67,6 +67,7 @@ function login(){
     var type=document.getElementById("Acctype");
     var A_type = type.options[type.selectedIndex].value;
     console.log(A_type);
+    console.log(psw);
     var http=new XMLHttpRequest();
     http.onreadystatechange=function(){
         if(this.readyState==4&&this.status==200){

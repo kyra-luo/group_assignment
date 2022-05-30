@@ -14,6 +14,7 @@ function myfunction(){
     }
 }
 function check(){
+    var state= false;
     var mess=document.getElementsByClassName('message1')[0];
 var PIN1=document.querySelector('.PIN1');
 var PIN2=document.querySelector('.PIN2');
