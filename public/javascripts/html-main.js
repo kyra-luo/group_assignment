@@ -27,7 +27,6 @@ function statusChangeCallback(response) {
     console.log(response);
 
     if (response.status === 'connected') {
-        // Logged into your app and Facebook.
         testAPI();
     } else {
         
@@ -46,10 +45,10 @@ function checkLoginState() {
 window.fbAsyncInit = function() {
     FB.init({
         appId      : '{your-app-id}',
-        cookie     : true,  // enable cookies to allow the server to access
-                            // the session
-        xfbml      : true,  // parse social plugins on this page
-        version    : '{api-version}' // Specify the Graph API version to use
+        cookie     : true, 
+                            
+        xfbml      : true,  
+        version    : '{api-version}' 
     });
 
 
