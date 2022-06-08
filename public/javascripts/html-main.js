@@ -44,11 +44,10 @@ function checkLoginState() {
 
 window.fbAsyncInit = function() {
     FB.init({
-        appId      : '{your-app-id}',
-        cookie     : true, 
-                            
+        appId      : '{111187574949444}',
+        cookie     : true,                           
         xfbml      : true,  
-        version    : '{api-version}' 
+        version    : '{v14.0}' 
     });
 
 
@@ -59,19 +58,9 @@ window.fbAsyncInit = function() {
 
 };
 
-
-(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-
-
 function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
+    FB.api('/me','GET', {"fields":"id,name,email"},function(response) {
         console.log('Successful login for: ' + response.name);
         document.getElementById('status').innerHTML =
             'Thanks for logging in, ' + response.name + '!';
