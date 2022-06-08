@@ -7,24 +7,43 @@
     <script src="https://kit.fontawesome.com/f48b9c11bb.js" crossorigin="anonymous"></script>
     <title>Person information</title>
 </head>
-<body>
-    <img src="images/logo.png" title="The Best Company" alt="This our pretty logo" style="float: left" onclick="location.href=('main.html')">
-        <i class="fa-solid fa-arrow-right-from-bracket" id ="exit" style="font-size: 30px; float: right;" onclick="location.href=('login.html')"></i>
+<body onload="h()">
+    <img src="images/logo.png" title="The Best Company" alt="This our pretty logo" style="float: left" onclick="location.href=('index.html')">
+        <i class="fa-solid fa-arrow-right-from-bracket" id ="exit" style="font-size: 30px; float: right;" onclick="logout()"></i>
         <div class="login_register" id='BBox'>
-                <h2 class="title" style="color: black; font-size: 50px">Personal information</h2>
-                    <p style="font-size: 30px" class="Fname">First name: YUKI</p>
-                <br>
-            <p style="font-size: 30px" class="Lname">Last name: H</p>
-            <br>
-            <p style="font-size: 30px" class="Uname">User name: H_YUKI</p>
-            <br>
-                    <p style="font-size: 30px" class="ID">ID: 5162709</p>
-                <br>
-                    <p style="font-size: 30px" class="Email">Email: EmYUKI@gmail.com</p>
-                <br>
-                    <p style="font-size: 30px" class="gender">Gender: Female</p>
-
+<!--                <h2 class="title" style="color: black; font-size: 50px">Personal information</h2>-->
+              <h1 style="font-size: larger">Please login or register </h1>
         </div>
+<script>
+    //onload = function () {
+       function h(){
+        if (window.localStorage.getItem('token'))
+        {
+            var http=new XMLHttpRequest();
+            http.onreadystatechange=function(){
 
+                document.getElementById("BBox").innerHTML=this.responseText;
+                console.log(this.responseText)
+            }
+
+            let url = `/information?User_name=${window.localStorage.getItem('username')}`
+
+            http.open("GET",url,true);
+            http.send();
+        }
+    }
+    function logout(){
+        if(window.localStorage.getItem('token')){
+            window.localStorage.clear();
+            window.location.href="index.html";
+            document.getElementById("BBox").innerHTML= '';
+            alert("logout successful");
+        }
+        window.location.href="index.html";
+
+
+
+     }
+</script>
 </body>
 </html>

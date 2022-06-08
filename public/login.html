@@ -11,7 +11,7 @@
 <body>
 <div class="container">
     <div class="con_forms">
-        <img src="images/logo.png" title="The Best Company" alt="This our pretty logo" onclick="location.href=('main.html')">
+        <img src="images/logo.png" title="The Best Company" alt="This our pretty logo" onclick="location.href=('index.html')">
         <div class="login_register">
             <form action="" class="sign_in">
                 <h2 class="title">SIGN IN</h2>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="button">
 <!--                    login-->
-                    <input type="submit" value="Login" class="btn" onclick="login()">
+                    <input type="button" value="Login" class="btn" onclick="login()">
                         <input type="button" value="Register" class="btn" onclick="location.href=('register.html')">
                 </div>
                 <a href="reset_password.html">
@@ -69,16 +69,26 @@ function login(){
     console.log(A_type);
     console.log(psw);
     var http=new XMLHttpRequest();
+
     http.onreadystatechange=function(){
         if(this.readyState==4&&this.status==200){
+            console.log(JSON.parse(this.responseText))
             if(JSON.parse(this.responseText).result){
+                console.log(1)
+                window.localStorage.clear()
                 window.location.href="information.html";
+                //console.log(JSON.parse(this.responseText).token)
+                //store the token
+                window.localStorage.setItem('token',JSON.parse(this.responseText).token)
+                //store the username
+                window.localStorage.setItem('username',name)
             }else{
+                console.log(2)
                 alert("Login Failed");
             }
-            return;
         }
     }
+
     http.open("POST","/login",true);
     http.setRequestHeader("Content-type", "application/json");
     http.send(JSON.stringify({

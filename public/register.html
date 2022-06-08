@@ -34,7 +34,7 @@
                 <p class="message"> Enter 6-16 digit password</p>
                 <div class="input_box">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password"   class="PIN2" placeholder="Conform Your Password" oninput="check()" required>
+                    <input type="password" class="PIN2" placeholder="Conform Your Password" oninput="check()" required>
                     <i class="fa-solid fa-eye" onclick="hidd()"></i>
                 </div>
                 <p class="message1"> Enter the password again</p>
@@ -44,20 +44,58 @@
                 </div>
                 <div class="input_box">
                     <i class="fa-solid fa-mars-and-venus"></i>
-                    <select>
+                    <select id="gender">
                         <option>Male</option>
                         <option>Female</option>
                     </select>
                 </div>
                 <div class="button">
                     <input type="button" value="Back to login page" class="btn1" onclick="location.href=('login.html')">
-                    <input type="submit" value="Create an account" class="btn1">
+                    <input type="button" value="Create an account" class="btn1" onclick="regi()">
                 </div>
             </form>
         </div>
     </div>
 
 </div>
+<script>
+    function regi() {
+        var f_name = document.getElementById("ipt0").value;
+        var l_name = document.getElementById("ipt1").value;
+        var u_name = document.getElementsByClassName("ipt2")[0].value;
+        var Pin_1 = document.getElementsByClassName("PIN1")[0].value;
+        var Pin_2 = document.getElementsByClassName("PIN2")[0].value;
+        var email_add = document.getElementsByClassName("ipt3")[0].value;
+        var Gender=document.getElementById("gender");
+         var A_type = Gender.options[Gender.selectedIndex].value;
 
+        //console.log(Gender);
+        //console.log(psw);
+        if(Pin_1===Pin_2)
+        {
+            var http = new XMLHttpRequest();
+
+            http.onreadystatechange = function () {
+
+
+            }
+            http.open("POST", "/register", true);
+            http.setRequestHeader("Content-type", "application/json");
+            http.send(JSON.stringify({
+                f_name: f_name,
+                l_name: l_name,
+                u_name: u_name,
+                Pin_1: Pin_1,
+                psw: Pin_1,
+                email_add: email_add,
+                Gender: Gender,
+                A_type: A_type
+            }));
+        }     else{
+            alert("Password must be exactly same");
+        }
+
+    }
+</script>
 </body>
 </html>
