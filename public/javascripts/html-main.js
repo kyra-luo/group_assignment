@@ -28,8 +28,7 @@ function statusChangeCallback(response) {
 
     if (response.status === 'connected') {
         testAPI();
-    } else {
-        
+    } else {       
         document.getElementById('status').innerHTML = 'Please log ' +
             'into this app.';
     }
@@ -49,9 +48,6 @@ window.fbAsyncInit = function() {
         xfbml      : true,  
         version    : '{v14.0}' 
     });
-
-
-
     FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
     });
@@ -59,10 +55,10 @@ window.fbAsyncInit = function() {
 };
 
 function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
+    console.log(' Welcome! .... ');
     FB.api('/me','GET', {"fields":"id,name,email"},function(response) {
         console.log('Successful login for: ' + response.name);
         document.getElementById('status').innerHTML =
-            'Thanks for logging in, ' + response.name + '!';
+            'logging in, ' + response.name + '!';
     });
 }
