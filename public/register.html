@@ -67,17 +67,25 @@
         var Pin_2 = document.getElementsByClassName("PIN2")[0].value;
         var email_add = document.getElementsByClassName("ipt3")[0].value;
         var Gender=document.getElementById("gender");
-         var A_type = Gender.options[Gender.selectedIndex].value;
+        var A_type = Gender.options[Gender.selectedIndex].value;
 
         //console.log(Gender);
         //console.log(psw);
-        if(Pin_1===Pin_2)
+        if(Pin_1===Pin_2&&Pin_1)
         {
             var http = new XMLHttpRequest();
 
             http.onreadystatechange = function () {
-
-
+                if(this.readyState==4&&this.status==200) {
+                    if (JSON.parse(this.responseText).result) {
+                        //alert("register successful")
+                        window.location.href = "login.html"
+                        //alert("register successful")
+                    } else if (JSON.parse(this.responseText).code === 401) {
+                        console.log(12)
+                        alert("The email address already used");
+                    }
+                }
             }
             http.open("POST", "/register", true);
             http.setRequestHeader("Content-type", "application/json");
@@ -86,15 +94,14 @@
                 l_name: l_name,
                 u_name: u_name,
                 Pin_1: Pin_1,
-                psw: Pin_1,
+                Pin2: Pin_2,
                 email_add: email_add,
-                Gender: Gender,
+                //Gender: Gender,
                 A_type: A_type
             }));
-        }     else{
+        }     else if(Pin_1!=Pin_2){
             alert("Password must be exactly same");
         }
-
     }
 </script>
 </body>
