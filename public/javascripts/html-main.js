@@ -133,7 +133,7 @@ function LocatorPlus(configuration) {
   locator.renderResultsList();
 }
 
-/** When the search input capability is enabled, initialize it. */
+
 function initializeSearchInput(locator) {
   const geocodeCache = new Map();
   const geocoder = new google.maps.Geocoder();
