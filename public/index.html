@@ -6,21 +6,7 @@
     <link rel="stylesheet" href="stylesheets/main.css">
     <script src="https://kit.fontawesome.com/f48b9c11bb.js" crossorigin="anonymous"></script>
     <script src="javascripts/html-main.js"></script>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/handlebars/4.7.7/handlebars.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-    <script id="locator-result-items-tmpl" type="text/x-handlebars-template">
-        {{#each locations}}
-        <li class="location-result" data-location-index="{{index}}">
-            <button class="select-location">
-            <h2 class="name">{{title}}</h2>
-            </button>
-        <div class="address">{{address1}}<br>{{address2}}</div>
-        </li>
-        {{/each}}
-    </script>
 </head>
 <body>
 <div id="container1">
@@ -52,12 +38,7 @@
     </div>
 
 </div>
-    
-<div id="map-container">
-<div id="gmp-map"></div>
-</div>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrvkQus33WhDrS1cn0YDJrNnyKcsWD0i0&callback=initMap&libraries=places,geometry&solution_channel=GMP_QB_locatorplus_v5_cA" async defer></script>
-    
+
 <div class="footer">
     <a href="About.html" class="bottom" style="font-size: 20px; " >
         About us
