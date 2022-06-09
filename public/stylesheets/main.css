@@ -1,99 +1,261 @@
 
 #cnav{
-    padding-left: 60px;
-    padding-top: 15px;
-    float: left;
-    line-height: 20px;
-    margin: auto;
-    background-color: sandybrown;
-    width: 100%;
+  padding-left: 60px;
+  padding-top: 15px;
+  float: left;
+  line-height: 20px;
+  margin: auto;
+  background-color: sandybrown;
+  width: 100%;
 }
 #show1 {
 
-    margin: auto;
-    padding-left: 40px;
+  margin: auto;
+  padding-left: 40px;
 }
 li{
-    padding-top: 40px;
+  padding-top: 40px;
 }
 
 #show2 {
-    padding-top: 25px;
-    margin: auto;
-    padding-right: 20px;
+  padding-top: 25px;
+  margin: auto;
+  padding-right: 20px;
 
 
 
 }
 .top:hover{
-    color: #eeeeee;
+  color: #eeeeee;
 
 }
 
 .top{
-    color: black;
-    display: inline-block;
-    height: 30px;
-    /*用padding来控制宽度可以灵活控制框的大小*/
-    padding: 1px 30px;
-    text-decoration: none;
+  color: black;
+  display: inline-block;
+  height: 30px;
+  padding: 1px 30px;
+  text-decoration: none;
 
-    text-align: center;
-    line-height: 40px;
+  text-align: center;
+  line-height: 40px;
 
 }
 .bottom{
-    color: black;
-    display: inline-block;
+  color: black;
+  display: inline-block;
+  height: 30px;
+  padding: 1px 30px;
 
-    height: 30px;
-    /*用padding来控制宽度可以灵活控制框的大小*/
-    padding: 1px 30px;
+  text-decoration: none;
 
-    text-decoration: none;
-
-    text-align: center;
-    line-height: 40px;
+  text-align: center;
+  line-height: 40px;
 }
 
 li{
-    float: left;
+  float: left;
 }
 
 *{
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #efefef;
-    color: white;
-    height: 60px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #efefef;
+  color: white;
+  height: 60px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 
 }
 
 .s_icons{
-    height: 50px;
-    width: 50px;
-    border: 1px solid plum;
-    margin: 0.45rem;
-    display: flex;
-    /*flex-direction: column;*/
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    color: black;
-    border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  border: 1px solid plum;
+  margin: 0.45rem;
+  display: flex;
+  /*flex-direction: column;*/
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  border-radius: 50%;
 
 }
 .s_icons:hover{
-    color: red;
-    border-color: dodgerblue;
+  color: red;
+  border-color: dodgerblue;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#map-container {
+  width: 50%;
+  height: 50%;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+#map-container a {
+  text-decoration: none;
+  color: #1967d2;
+}
+
+#map-container button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+#gmp-map {
+  position: absolute;
+  left: 22em;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#locations-panel {
+  position: absolute;
+  left: 0;
+  width: 22em;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+  background: white;
+  padding: 0.5em;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 876px) {
+  #gmp-map {
+    left: 0;
+    bottom: 50%;
+  }
+
+  #locations-panel {
+    top: 50%;
+    right: 0;
+    width: unset;
+  }
+}
+
+#locations-panel-list > header {
+  padding: 1.4em 1.4em 0 1.4em;
+}
+
+#locations-panel-list h1.search-title {
+  font-size: 1em;
+  font-weight: 500;
+  margin: 0;
+}
+
+#locations-panel-list h1.search-title > img {
+  vertical-align: bottom;
+  margin-top: -1em;
+}
+
+#locations-panel-list .search-input {
+  width: 100%;
+  margin-top: 0.8em;
+  position: relative;
+}
+
+#locations-panel-list .search-input input {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3em;
+  height: 2.2em;
+  box-sizing: border-box;
+  padding: 0 2.5em 0 1em;
+  font-size: 1em;
+}
+
+#locations-panel-list .search-input-overlay {
+  position: absolute;
+}
+
+#locations-panel-list .search-input-overlay.search {
+  right: 2px;
+  top: 2px;
+  bottom: 2px;
+  width: 2.4em;
+}
+
+#locations-panel-list .search-input-overlay.search button {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.2em;
+  color: black;
+  background: transparent;
+}
+
+#locations-panel-list .search-input-overlay.search .icon {
+  margin-top: 0.05em;
+  vertical-align: top;
+}
+
+#locations-panel-list .section-name {
+  font-weight: 500;
+  font-size: 0.9em;
+  margin: 1.8em 0 1em 1.5em;
+}
+
+#locations-panel-list .location-result {
+  position: relative;
+  padding: 0.8em 3.5em 0.8em 1.4em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+
+#locations-panel-list .location-result:first-of-type {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+#locations-panel-list .location-result:last-of-type {
+  border-bottom: none;
+}
+
+#locations-panel-list .location-result.selected {
+  outline: 2px solid #4285f4;
+}
+
+#locations-panel-list button.select-location {
+  margin-bottom: 0.6em;
+  text-align: left;
+}
+
+#locations-panel-list .location-result h2.name {
+  font-size: 1em;
+  font-weight: 500;
+  margin: 0;
+}
+
+#locations-panel-list .location-result .address {
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+}
+
+#location-results-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
