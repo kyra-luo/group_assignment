@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Calender note</title>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
     <link rel="stylesheet" href="stylesheets/main.css">
+  <meta name="google-signin-client_id" content="639201047818-td8nv3coj0amfle4rtq6q567ntj137bv.apps.googleusercontent.com">
     <script src="https://kit.fontawesome.com/f48b9c11bb.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -30,6 +32,9 @@
             <li style="list-style: none; font-size: 30px">
                 <a class="top" href="register.html">Sign up</a>
             </li>
+          <li>
+            <span class="g-signin2" data-onsuccess="onSignIn"></span>
+          </li>
         </ul>
     </div>
     <div class="u">
