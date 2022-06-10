@@ -6,19 +6,19 @@ var logger = require('morgan');
 // const nodemailer=require("nodemailer");
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-//引入mysql(use mysql in this app)
+//mysql(use mysql in this app)
 var mysql =require('mysql');
 const req = require("express/lib/request");
 
-// 引入忘记密码模块;
+// forget
 const forget = require('./routes/forget')
-// 引入登录模块
+// login
 const login = require('./routes/login')
-//引入token
+//token
 var jwt = require('jsonwebtoken')
-// 引入注册模块
+// logup
 const logup = require('./routes/register')
-//引入查询用户信息以及操作用户信息的模块
+//sendemail
 const mail=require("./routes/sendemail")
 var app = express();
 

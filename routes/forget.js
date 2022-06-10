@@ -4,9 +4,11 @@ var router = express.Router();
 router.post('/reset',function (req,res,next){
 
     var name=req.body.name;
+
     var PIN=req.body.PIN;
     var con_PIN=req.body.con_PIN;
     var email=req.body.email;
+    console.log(PIN)
 
     if(name==null||PIN==null||con_PIN==null){
         res.send({"result": false});
