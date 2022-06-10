@@ -1,9 +1,12 @@
 const mysql = require('mysql')
 var express = require('express');
 var router = express.Router();
-router.post('/reset',function (req,res,next){
+router.post('/reset_password',function (req,res,next){
 
     var name=req.body.name;
+    console.log(req.body)
+
+    console.log('reset')
 
     var PIN=req.body.PIN;
     var con_PIN=req.body.con_PIN;
