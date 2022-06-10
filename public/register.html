@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="javascripts/login.js"></script>
+    <link href="stylesheets/register.css" rel="stylesheet">
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/f48b9c11bb.js"></script>
+    <title>Register</title>
+</head>
+<body>
+<div class="container">
+    <div class="con_forms">
+        <img alt="This our pretty logo" class="logo" onclick="location.href=('main.html')" src="images/logo.png" style="float: left"  title="The Best Company">
+        <div class="login_register">
+            <form action="information.html" class="sign_in">
+                <h2 class="title">Sign Up</h2>
+                <div class="input_box">
+                    <i class="fa-solid fa-user"></i>
+                    <input id="ipt0"  placeholder="Enter You First Name" required type="text">
+                </div>
+                <div class="input_box">
+                    <i class="fa-solid fa-user"></i>
+                    <input id="ipt1" placeholder="Enter You Last Name" required type="text">
+                </div>
+                <div class="input_box">
+                    <i class="fa-solid fa-person"></i>
+                    <input class="ipt2" placeholder="Enter You User Name" required type="text">
+                </div>
+                <div class="input_box">
+                    <i class="fa-solid fa-lock"></i>
+                    <input class="PIN1"  oninput="myfunction()" placeholder="Enter Your Password"  required type="password">
+                    <i class="fa-solid fa-eye" onclick="hid()"></i>
+                </div>
+                <p class="message"> Enter 6-16 digit password</p>
+                <div class="input_box">
+                    <i class="fa-solid fa-lock"></i>
+                    <input class="PIN2" oninput="check()" placeholder="Conform Your Password" required type="password">
+                    <i class="fa-solid fa-eye" onclick="hidd()"></i>
+                </div>
+                <p class="message1"> Enter the password again</p>
+                <div class="input_box">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input class="ipt3"  placeholder="Enter Your Email" required type="email">
+                </div>
+                <div class="input_box">
+                    <i class="fa-solid fa-mars-and-venus"></i>
+                    <select id="gender">
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+                <div class="button">
+                    <input class="btn1" onclick="location.href=('login.html')" type="button" value="Back to login page">
+                    <input class="btn1" onclick="regi()" type="button" value="Create an account">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<script>
+    function regi() {
+        var f_name = document.getElementById("ipt0").value;
+        var l_name = document.getElementById("ipt1").value;
+        var u_name = document.getElementsByClassName("ipt2")[0].value;
+        var Pin_1 = document.getElementsByClassName("PIN1")[0].value;
+        var Pin_2 = document.getElementsByClassName("PIN2")[0].value;
+        var email_add = document.getElementsByClassName("ipt3")[0].value;
+        var Gender=document.getElementById("gender");
+        var A_type = Gender.options[Gender.selectedIndex].value;
+
+        //console.log(Gender);
+        //console.log(psw);
+        if(Pin_1===Pin_2&&Pin_1)
+        {
+            var http = new XMLHttpRequest();
+
+            http.onreadystatechange = function () {
+                if(this.readyState==4&&this.status==200) {
+                    if (JSON.parse(this.responseText).result) {
+                        //alert("register successful")
+                        window.location.href = "login.html"
+                        //alert("register successful")
+                    } else if (JSON.parse(this.responseText).code === 401) {
+                        console.log(12)
+                        alert("The email address already used");
+                    }
+                }
+            }
+            http.open("POST", "/register", true);
+            http.setRequestHeader("Content-type", "application/json");
+            http.send(JSON.stringify({
+                f_name: f_name,
+                l_name: l_name,
+                u_name: u_name,
+                Pin_1: Pin_1,
+                Pin2: Pin_2,
+                email_add: email_add,
+                //Gender: Gender,
+                A_type: A_type
+            }));
+        }     else if(Pin_1!=Pin_2){
+            alert("Password must be exactly same");
+        }
+    }
+</script>
+</body>
+</html>
