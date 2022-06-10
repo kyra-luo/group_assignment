@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="javascripts/information.js"></script>
+    <link rel="stylesheet" href="stylesheets/register.css">
+    <script src="https://kit.fontawesome.com/f48b9c11bb.js" crossorigin="anonymous"></script>
+    <title>Person information</title>
+</head>
+<body>
+    <img src="images/logo.png" title="The Best Company" alt="This our pretty logo" style="float: left" onclick="location.href=('index.html')">
+        <i class="fa-solid fa-arrow-right-from-bracket" id ="exit" style="font-size: 30px; float: right;" onclick="logout()"></i>
+        <div class="login_register" id='BBox'>
+<!--                <h2 class="title" style="color: black; font-size: 50px">Personal information</h2>-->
+              <h1 style="font-size: larger">Please login or register </h1>
+        </div>
+<script>
+    onload = function () {
+    //    function h(){
+        var http=new XMLHttpRequest();
+        http.onreadystatechange=function(){
+
+            document.getElementById("BBox").innerHTML=this.responseText;
+            console.log(this.responseText)
+        }
+
+        console.log(window.localStorage.getItem('username'))
+        let url = `/information?User_name=${window.localStorage.getItem('username')}`
+
+        http.open("GET",url,true);
+        http.send();
+    }
+    function logout(){
+        if(window.localStorage.getItem('token')){
+            window.localStorage.clear();
+            window.location.href="index.html";
+           document.getElementById("BBox").innerHTML = '';
+            alert("logout successful");
+        }
+        window.localStorage.clear()
+        window.location.href="index.html";
+
+
+
+     }
+</script>
+</body>
+</html>

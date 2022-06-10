@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calender note</title>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link rel="stylesheet" href="stylesheets/main.css">
+  <meta name="google-signin-client_id" content="639201047818-td8nv3coj0amfle4rtq6q567ntj137bv.apps.googleusercontent.com">
+    <script src="https://kit.fontawesome.com/f48b9c11bb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="container1">
+    <div id="cnav" style="width: 100%">
+        <img src="images/logo.png"  alt="This our pretty logo" style="height: 160px; width: 160px;float: left;  left: 10px">
+        <ul class="bar">
+            <li style="list-style: none; font-size: 30px">
+
+                <a  class="top" href="index.html">Home</a>
+            </li>
+            <li style="list-style: none; font-size: 30px">
+                <a  class="top" href="calendar.html">User</a>
+            </li>
+            <li style="list-style: none; font-size: 30px">
+                <a class="top" href="information.html">Information</a>
+            </li>
+            <li style="list-style: none; font-size: 30px">
+                <a class="top" href="calendar.html" target="_blank">calendar</a>
+            </li>
+            <li style="list-style: none; font-size: 30px">
+                <a  class="top" href="login.html">Sign in</a>
+            </li>
+            <li style="list-style: none; font-size: 30px">
+                <a class="top" href="register.html">Sign up</a>
+            </li>
+          <li>
+            <span class="g-signin2" data-onsuccess="onSignIn"></span>
+          </li>
+        </ul>
+    </div>
+    <div class="u">
+        <img id ="show1" src="images/2.jpg" alt="image" style="width: 40%" >
+        &nbsp;
+        <img id ="show2" src="images/5.jpg" alt= "image2" style="width: 47%;" >
+    </div>
+<button onclick="sendemail()">reset password</button>
+</div>
+<div class="footer">
+    <a href="About.html" class="bottom" style="font-size: 20px; " >
+        About us
+    </a>
+    <a href="About.html" class="bottom" style="font-size: 20px">
+        Contact us
+    </a>
+    <a href="#" class="s_icons">
+        <i class="fa-brands fa-twitter"></i>
+    </a>
+    <a href="#" class="s_icons">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a href="#" class="s_icons">
+        <i class="fa-brands fa-facebook-f"></i>
+    </a>
+</div>
+<script>
+    // $.ajax({
+    //     url:'mail',
+    //     type:'post',
+    //     success: function (data){
+    //         console.log(data)
+    //     },
+    //     error:function (err){
+    //         console.log(err)
+    //     }
+    // })
+    function sendemail() {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+            }
+            http.open("GET", "/email", true);
+
+            http.send();
+
+        }
+
+    }
+
+</script>
+
+</body>
+</html>
