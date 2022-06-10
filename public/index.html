@@ -5,8 +5,6 @@
     <title>Calender note</title>
     <link rel="stylesheet" href="stylesheets/main.css">
     <script src="https://kit.fontawesome.com/f48b9c11bb.js" crossorigin="anonymous"></script>
-    <script src="javascripts/html-main.js"></script>
-
 </head>
 <body>
 <div id="container1">
@@ -24,6 +22,9 @@
                 <a class="top" href="information.html">Information</a>
             </li>
             <li style="list-style: none; font-size: 30px">
+                <a class="top" href="calendar.html" target="_blank">calendar</a>
+            </li>
+            <li style="list-style: none; font-size: 30px">
                 <a  class="top" href="login.html">Sign in</a>
             </li>
             <li style="list-style: none; font-size: 30px">
@@ -36,9 +37,8 @@
         &nbsp;
         <img id ="show2" src="images/5.jpg" alt= "image2" style="width: 47%;" >
     </div>
-
+<button onclick="sendemail()">reset password</button>
 </div>
-
 <div class="footer">
     <a href="About.html" class="bottom" style="font-size: 20px; " >
         About us
@@ -46,16 +46,41 @@
     <a href="About.html" class="bottom" style="font-size: 20px">
         Contact us
     </a>
-    <hr>
-    <a class="twitter-share-button"
-           href="https://twitter.com/intent/tweet?text=Hello%20world"
-           data-size="Default">
-            Twitter
+    <a class="s_icons" href="#">
+        <i class="fa-brands fa-twitter"></i>
     </a>
-    <div class="fb-login-button" data-width="" data-size="small" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
-
+    <a class="s_icons" href="#">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a class="s_icons" href="#">
+        <i class="fa-brands fa-facebook-f"></i>
+    </a>
 </div>
+<script>
+    // $.ajax({
+    //     url:'mail',
+    //     type:'post',
+    //     success: function (data){
+    //         console.log(data)
+    //     },
+    //     error:function (err){
+    //         console.log(err)
+    //     }
+    // })
+    function sendemail() {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+            }
+            http.open("GET", "/email", true);
 
+            http.send();
+
+        }
+
+    }
+
+</script>
 
 </body>
 </html>

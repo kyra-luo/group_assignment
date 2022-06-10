@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+// const nodemailer=require("nodemailer");
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 //引入mysql(use mysql in this app)
@@ -19,7 +19,7 @@ var jwt = require('jsonwebtoken')
 // 引入注册模块
 const logup = require('./routes/register')
 //引入查询用户信息以及操作用户信息的模块
-
+const mail=require("./routes/sendemail")
 var app = express();
 
 // view engine setup
@@ -48,8 +48,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(login);
 app.use(forget);
 app.use(logup)
-//app.use(jwt);
-
+app.use(mail);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use(function (re,res,next){

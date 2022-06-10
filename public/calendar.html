@@ -1,67 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Calendar</title>
     <meta charset="UTF-8">
-    <link href="stylesheets/calendar.css" rel="stylesheet" type="text/css" />
-    <script src="javascripts/calendar.js" defer></script>
-    <script src="javascripts/html-main.js"></script>
+    <title>Title</title>
+    <link  href="/index.css" rel="stylesheet">
 </head>
 
+<script src="/index.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <body>
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v14.0&appId=413484914004162&autoLogAppEvents=1" nonce="WNP5BHkp"></script>
 
-<header>
-    <div class="container">
-        <img src="./images/logo.png" style="width: 160px; " alt="This our pretty logo" onclick="location.href=('main.html')">
-        <div class="menu">
-            <a href="index.html" style=" font-size: 30px;">Home</a>
-            <a href="information.html" style=" font-size: 30px;">Information</a>
-            <a href="calendar.html" style=" font-size: 30px;">User</a>
-            <a href="login.html" style=" font-size: 30px;">Sign in</a>
-            <a href="register.html" style=" font-size: 30px;">Sign up</a>
-        </div>
-    </div>
-</header>
-    
-<div id="calendar">
-    <div>
+<input id="start" readonly  value=""/>
+<input id="title" value="" />
+<button onclick="add()">add</button>
+<button onclick="del()">delete</button>
 
-        <button onclick="lastMonth()"></button>
-
-        <div id="month"></div>
-
-        <button onclick="nextMonth()">></button>
-    </div>
+<div id='calendar'></div>
 
 
-    <div>
-        <div class="everyday">SUN</div>
-        <div class="everyday">MON</div>
-        <div class="everyday">TUE</div>
-        <div class="everyday">WEN</div>
-        <div class="everyday">THU</div>
-        <div class="everyday">FRI</div>
-        <div class="everyday">SAT</div>
-    </div>
 
-    <div id="day"></div>
-</div>
 
-<div class="fot" style="padding-bottom: 0px">
-    <div class="container">
-        <a href="About.html">About us</a>
-        <a href="About.html">Contact us</a>
-    </div>
-    <a class="twitter-share-button"
-       href="https://twitter.com/intent/tweet?text=Hello%20world"
-       data-size="Default">
-        Twitter
-    </a>
-    <div class="fb-login-button" data-width="" data-size="small" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
-
-</div>
 </body>
+<script>
+
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        initialDate: '2022-06-10',
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        dateClick: function(info) {
+            console.log(info);
+            console.log(info.dateStr);
+            $("#start").val(info.dateStr);
+        },
+        events: [ {
+            id: '2022-03-30',
+            title: 'All Day Event111',
+            start: '2022-03-30'
+        }]
+    });
+
+    calendar.render();
+
+
+    //添加
+    function add(){
+        var date=$("#start").val();
+        var title=$("#title").val();
+
+        if(!date){
+            alert("请点击选中日期");
+            return false;
+        }
+        if(!title){
+            alert("请输入事件");
+            return false;
+        }
+
+        console.log(calendar.getEvents());
+
+        calendar.addEvent({
+            id:date,
+            title: title,
+            start:date,
+        })
+    }
+
+    //删除
+    function  del(){
+        console.log(calendar);
+        var date=$("#start").val();
+        var title=$("#title").val();
+
+        if(!date){
+            alert("请点击选中日期");
+            return false;
+        }
+
+        // calendar
+        // calendar.addEvent({
+        //     title: '',
+        //     start:date,
+        // })
+        //
+        calendar.getEventById(date).remove();
+    }
+
+
+
+
+
+
+
+</script>
 </html>

@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/f48b9c11bb.js" crossorigin="anonymous"></script>
     <title>Person information</title>
 </head>
-<body onload="h()">
+<body>
     <img src="images/logo.png" title="The Best Company" alt="This our pretty logo" style="float: left" onclick="location.href=('index.html')">
         <i class="fa-solid fa-arrow-right-from-bracket" id ="exit" style="font-size: 30px; float: right;" onclick="logout()"></i>
         <div class="login_register" id='BBox'>
@@ -15,22 +15,20 @@
               <h1 style="font-size: larger">Please login or register </h1>
         </div>
 <script>
-    //onload = function () {
-       function h(){
-        if (window.localStorage.getItem('token'))
-        {
-            var http=new XMLHttpRequest();
-            http.onreadystatechange=function(){
+    onload = function () {
+    //    function h(){
+        var http=new XMLHttpRequest();
+        http.onreadystatechange=function(){
 
-                document.getElementById("BBox").innerHTML=this.responseText;
-                console.log(this.responseText)
-            }
-
-            let url = `/information?User_name=${window.localStorage.getItem('username')}`
-
-            http.open("GET",url,true);
-            http.send();
+            document.getElementById("BBox").innerHTML=this.responseText;
+            console.log(this.responseText)
         }
+
+        console.log(window.localStorage.getItem('username'))
+        let url = `/information?User_name=${window.localStorage.getItem('username')}`
+
+        http.open("GET",url,true);
+        http.send();
     }
     function logout(){
         if(window.localStorage.getItem('token')){
@@ -39,6 +37,7 @@
            document.getElementById("BBox").innerHTML = '';
             alert("logout successful");
         }
+        window.localStorage.clear()
         window.location.href="index.html";
 
 
