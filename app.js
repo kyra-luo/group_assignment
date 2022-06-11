@@ -29,8 +29,8 @@ app.set('view engine', 'jade');
 //创建一个pool(create a 'pool' of connections to be used for connecting with our SQL server)
 var dbconnection=mysql.createPool({
   host: 'localhost',
-  user: 'root',
-  password: '12345678',
+  //user: 'root',
+  //password: '12345678',
   database:'Project'
 });
 
